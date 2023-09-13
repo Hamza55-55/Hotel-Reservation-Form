@@ -1,0 +1,186 @@
+<html>
+    <head>
+        <title>Hotel Reservation</title>
+        <link rel="stylesheet" href="hotelbooking.css">
+    <script>
+        function Validation(){
+            let namebox=document.getElementById("hname");
+            let emailbox=document.getElementById("hemail");
+            let roombox=document.getElementById("hroomtype");
+            let guestbox=document.getElementById("hguests");
+            let arrivaldatebox=document.getElementById("harrivaldate");
+            let arrivaltimebox=document.getElementById("harrivaltime");
+            let departurebox=document.getElementById("hdeparture");
+            let radiobox1=document.getElementById("radio1");
+            let radiobox2=document.getElementById("radio2");
+            let flightnobox=document.getElementById("hflightno");
+            
+            let nameErrorBox=document.getElementById("nameError");
+            let nameErrorBox2=document.getElementById("nameError2");
+            let emailErrorBox=document.getElementById("emailError");
+            let emailErrorBox2=document.getElementById("emailError2");
+            let roomtypeErrorBox=document.getElementById("roomtypeError");
+            let guestnoErrorBox=document.getElementById("guestnoError");
+            let guestnoErrorBox2=document.getElementById("guestnoError2");
+            let arrivaldateErrorBox=document.getElementById("arrivaldateError");
+            let arrivaltimeErrorBox=document.getElementById("arrivaltimeError");
+            let departureErrorBox=document.getElementById("departureError");  
+            let departureErrorBox2=document.getElementById("departureError2");  
+            let pickupsErrorBox=document.getElementById("radiobuttonError");  
+            let flightnoErrorBox=document.getElementById("flightnoError");
+            let flightnoErrorBox2=document.getElementById("flightnoError2");
+         
+
+            nameErrorBox.innerHTML="&nbsp;";
+            nameErrorBox2.innerHTML="&nbsp;";
+            emailErrorBox.innerHTML="&nbsp;";
+            emailErrorBox2.innerHTML="&nbsp;";
+            roomtypeErrorBox.innerHTML="&nbsp;";
+            guestnoErrorBox.innerHTML="&nbsp;";
+            guestnoErrorBox2.innerHTML="&nbsp;";
+            arrivaldateErrorBox.innerHTML="&nbsp;";
+            arrivaltimeErrorBox.innerHTML="&nbsp;";
+            departureErrorBox.innerHTML="&nbsp;";
+            departureErrorBox2.innerHTML="&nbsp;";
+            pickupsErrorBox.innerHTML="&nbsp;";
+            flightnoErrorBox.innerHTML="&nbsp;";
+            flightnoErrorBox2.innerHTML="&nbsp;";
+
+                let letters=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                var fletter = /^[A-Za0-z9]+$/;
+
+            if(namebox.value == ""){
+                nameErrorBox.innerHTML=" *";
+                return false;
+            }else if(namebox.value.length<3 || namebox.value.length>15){
+                nameErrorBox2.innerHTML="Please enter name b/w 3 and 15";
+                return false;
+            }
+
+            if(emailbox.value == ""){
+                emailErrorBox.innerHTML=" *";
+                return false;
+            }else if(!emailbox.value.match(letters)){
+                emailErrorBox2.innerHTML="Invalid email address!"
+                return false;
+            }
+
+            if(roombox.value == "Please Select"){
+               roomtypeErrorBox.innerHTML=" *";
+                return false;
+            }
+
+            if(guestbox.value == ""){
+               guestnoErrorBox.innerHTML=" *";
+                return false;
+            }else if(guestbox.value <1 || guestbox.value >8){
+               guestnoErrorBox2.innerHTML="Room have min 1 & max 8 guest capacity!";
+                return false;
+            }
+
+            if(arrivaldatebox.value == ""){
+               arrivaldateErrorBox.innerHTML=" *";
+                return false;
+            }
+            if(arrivaltimebox.value == ""){
+                arrivaltimeErrorBox.innerHTML=" *";
+                return false;
+            }
+
+            if(departurebox.value == ""){
+               departureErrorBox.innerHTML=" *";
+                return false;
+            }else if(departurebox.value < arrivaldatebox.value){
+                departureErrorBox2.innerHTML="Departure year can't be less then arrival!";
+                return false;
+            }
+
+            if(!radiobox1.checked && !radiobox2.checked){
+               pickupsErrorBox.innerHTML=" *";
+                return false;
+            }
+            if(flightnobox.value == ""){
+               flightnoErrorBox.innerHTML=" *";
+                return false;
+            }else if(!flightnobox.value.match(fletter)){
+                flightnoErrorBox2.innerHTML="No special char are allowed!"
+                return false;
+            }
+
+        }
+        function autoFillup(){
+            let namebox=document.getElementById("hname");
+            let emailbox=document.getElementById("hemail");
+            let guestbox=document.getElementById("hguests");
+            let flightnobox=document.getElementById("hflightno");
+            let fillupvalue={
+                hname:'Hamza Badar',
+                hemail:'badarhamza320@gmail.com',
+                hroomtype:'Family Room',
+                hguests:'2',
+                hflightno:'Emr2301',
+            }
+            if(namebox.value == ""){
+              namebox.value=fillupvalue.hname;
+            }
+            if(emailbox.value == ""){
+              emailbox.value=fillupvalue.hemail;
+            }
+            if(guestbox.value == ""){
+              guestbox.value=fillupvalue.hguests;
+            }
+            if(flightnobox.value == ""){
+              flightnobox.value=fillupvalue.hflightno;
+            }
+
+        }
+    </script>
+    </head>
+<body>
+    <div class="division">
+        <form action="http://localhost:9090/hotelbooking" method="POST" id="hotelform" onsubmit="return Validation()">
+            <h2>Wellcome to HF Hotels</h2>
+            <table >
+                <tr><td>Name<span class="error" id="nameError">&nbsp;</span></td><td><input type="text" name="name" id="hname"></td></tr>
+                <tr><td align="end" colspan="2"><span class="error2" id="nameError2">&nbsp;</span></td></tr>
+
+                <tr><td>Email<span class="error" id="emailError">&nbsp;</span></td><td><input type="text" name="email" id="hemail"></td></tr>
+                <tr><td align="end" colspan="2"><span class="error2" id="emailError2">&nbsp;</span></td></tr>
+
+                <tr><td>Room type<span class="error" id="roomtypeError">&nbsp;</span></td><td><select name="roomtype" id="hroomtype">
+                    <option value="Please Select">Please Select</option>
+                    <option value="Standard Room">Standard Room</option>
+                    <option value="Family Room">Family Room</option>
+                    <option value="Female Room">Female Room</option>
+                    <option value="Female Room">Female Room</option>
+                    <option value="Male Room">Male Room</option>
+                </select></td></tr>
+                <tr><td></td></tr>
+
+                <tr><td>No of Guest<span class="error" id="guestnoError">&nbsp;</span></td><td><input type="number" name="guestno" id="hguests"></td></tr>
+                <tr><td align="end" colspan="2"><span class="error2" id="guestnoError2">&nbsp;</span></td></tr>
+
+                <tr><td>Arrival date<span class="error" id="arrivaldateError">&nbsp;</span><span class="error" id="arrivaltimeError">&nbsp;</span></td>
+                    <td><input type="date" name="arrivaldate" id="harrivaldate"><input type="time" name="arrivaltime" id="harrivaltime"></td></tr>
+
+                <tr><td>Departure Date<span class="error" id="departureError">&nbsp;</span></td><td><input type="date" name="departure" id="hdeparture"></td></tr>
+                <tr><td align="end" colspan="2"><span class="error2" id="departureError2">&nbsp;</span></td></tr>
+
+                <tr><td>Free Pickups<span class="error" id="radiobuttonError">&nbsp;</span></td><td><input type="radio" name="pickups" id="radio1"><span>YES! Pick me up please.</span></td></tr>
+                <tr><td></td><td><input type="radio" name="pickups" id="radio2"><span>No! I will manage myself.</span></td></tr>
+                <tr><td></td></tr>
+
+                <tr><td>Flight No<span class="error" id="flightnoError">&nbsp;</span></td><td><input type="text" name="flightno" id="hflightno"></td></tr>
+                <tr><td align="end" colspan="2"><span class="error2" id="flightnoError2">&nbsp;</span></td></tr>
+
+                <tr><td>Specail Requirements</td><td><textarea name="sprequirement" id="hsprequirements" cols="30" rows="10"></textarea></td></tr>
+                <tr><td align="end" colspan="2">
+                    <button type="button" class="btn" onclick="autoFillup()">Auto Fill</button>
+                    <button type="submit" class="btn">Book</button>         
+                </td></tr>
+
+            </table>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+.division{
+ border: 2px solid black;
+    height: 700px;
+    width: 420px;
+   position: relative;
+   left: 36%;
+   border-radius: 12px;
+   padding: 10px;
+}
+#hotelform{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+th,td {
+    width: 150px;
+}
+
+#hname{
+    border-radius: 9px;
+    width: 250px;
+    margin-left: 21px;
+    height: 29px;
+
+}
+#hemail{
+    border-radius: 9px;
+    width: 250px;
+    margin-left: 21px;
+    height: 29px;
+
+}
+#hroomtype{
+    border-radius: 9px;
+    width: 250px;
+    margin-left: 21px;
+    height: 29px;
+
+}
+#hguests{
+    border-radius: 9px;
+    width: 250px;
+    margin-left: 21px;
+    height: 29px;
+
+}
+#harrivaldate{
+    border-radius: 9px;
+    width: 113px;
+    margin-left: 21px;
+    height: 29px;
+
+}
+#harrivaltime{
+    border-radius: 9px;
+    width: 113px;
+    margin-left: 21px;
+    height: 29px;
+
+}
+#hdeparture{
+    border-radius: 9px;
+    width: 250px;
+    margin-left: 21px;
+    height: 29px;
+
+}
+#hflightno{
+    border-radius: 9px;
+    width: 250px;;
+    margin-left: 21px;
+    height: 29px;
+
+}
+#hsprequirements{
+    border-radius: 9px;
+    width: 250px;
+    margin-left: 21px;
+  
+
+}
+#radio1{
+    margin-left: 21px;
+}
+#radio2{
+    margin-left: 21px;
+}
+
+.btn{
+    
+    font-weight: bold;
+    color: white;
+    background-color: grey;
+    border-style: none;
+    border-radius: 2px;
+    width: 100px;
+    height: 30px;
+    font-family: cursive;
+    border-radius: 4px;
+}
+.error{
+    color: orangered;
+    font-size: 25px;
+    font-family: bold;
+}
+.error2{
+    color:orangered;
+}

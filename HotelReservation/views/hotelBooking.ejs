@@ -1,0 +1,31 @@
+<html>
+    <head><title>Book Hotel</title></head>
+    <body>
+        <table border="2">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Room_Type</th>
+                <th>No_of_Guests</th>
+                <th>Arrival_Date</th>
+                <th>Arrival_Time</th>
+                <th>Departure_Date</th>
+                <th>Flight_No</th>
+                <th>Specail_Requirement</th>
+            </tr>
+            <% listBookedHotels.forEach((hotelbooked)=>{%>
+            <tr>
+                <td><%= hotelbooked.name %></td>
+                <td><%= hotelbooked.email %></td>
+                <td><%= hotelbooked.roomtype %></td>
+                <td><%= hotelbooked.guestno %></td>
+                <td><%= hotelbooked.arrivaldate %></td>
+                <td><%= hotelbooked.arrivaltime %></td>
+                <td><%= hotelbooked.departure %></td>
+                <td><%= hotelbooked.flightno %></td>
+                <td><%= hotelbooked.sprequirement %></td>
+            </tr>
+            <% });%>
+       </table>
+    </body>
+</html>
